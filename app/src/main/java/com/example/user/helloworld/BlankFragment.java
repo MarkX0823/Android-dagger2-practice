@@ -10,12 +10,13 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import dagger.android.support.AndroidSupportInjection;
-
-public class BlankFragment extends Fragment {
+public class BlankFragment extends Fragment implements Injectable {
 
     @Inject
     MyClass2 myClass2;
+
+    @Inject
+    MyClass3 myClass3;
 
     private TextView viewInfo;
 
@@ -40,11 +41,10 @@ public class BlankFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
-        AndroidSupportInjection.inject(this);
         super.onAttach(context);
     }
 
     public void refresh() {
-        viewInfo.setText(myClass2.toString());
+        viewInfo.setText(myClass3.toString());
     }
 }

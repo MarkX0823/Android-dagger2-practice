@@ -4,16 +4,16 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class MyClass2 {
-    public String name = "";
-    public int id = 0;
+public class MyClass3 {
+    MyClass myClass;
 
     @Inject
-    public MyClass2() {
+    public MyClass3(MyClass myClass) {
+        this.myClass = myClass;
     }
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ":" + id + ":" + name;
+        return myClass.toString();
     }
 }

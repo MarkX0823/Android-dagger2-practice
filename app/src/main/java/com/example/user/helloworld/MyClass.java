@@ -8,6 +8,6 @@ public class MyClass {
 
     @Override
     public String toString() {
-        return id + ":" + name;
+        return getClass().getSimpleName() + ":" + id + ":" + name;
     }
 }

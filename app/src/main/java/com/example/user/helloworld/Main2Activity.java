@@ -9,18 +9,20 @@ import android.widget.Button;
 
 import javax.inject.Inject;
 
-import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-public class Main2Activity extends AppCompatActivity implements HasSupportFragmentInjector {
+public class Main2Activity extends AppCompatActivity implements HasSupportFragmentInjector, Injectable {
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
 
     @Inject
     MyClass2 myClass2;
+
+    @Inject
+    MyClass3 myClass3;
 
     private FragmentManager fragmentManager;
 
@@ -31,7 +33,6 @@ public class Main2Activity extends AppCompatActivity implements HasSupportFragme
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 

@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import dagger.android.AndroidInjection;
-
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements Injectable {
 
     private Button buttonHelloWorld;
     private Button buttonNext;
@@ -22,9 +20,11 @@ public class MainActivity extends Activity {
     @Inject
     MyClass2 myClass2;
 
+    @Inject
+    MyClass3 myClass3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,9 +35,9 @@ public class MainActivity extends Activity {
         buttonHelloWorld.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myClass2.id = id++;
-                myClass2.name = Long.toString(System.currentTimeMillis());
-                viewInfo.setText(myClass2.toString());
+                myClass3.myClass.id = id++;
+                myClass3.myClass.name = Long.toString(System.currentTimeMillis());
+                viewInfo.setText(myClass3.toString());
             }
         });
 
